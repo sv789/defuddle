@@ -89,6 +89,7 @@ export async function parseSource(source: string | undefined, options: ParseOpti
 	if (isUrl && result.wordCount === 0 && !options.userAgent) {
 		try {
 			const botHtml = await fetchPage(source, BOT_UA, options.lang);
+
 			// Check for raw markdown before DOM parsing destroys whitespace
 			const rawMarkdown = extractRawMarkdown(botHtml);
 			if (rawMarkdown) {
@@ -158,7 +159,7 @@ export function createProgram(): Command {
 	program
 		.name('defuddle')
 		.description('Extract article content from web pages')
-			.version(version);
+		.version(version);
 
 	program
 		.command('parse')
