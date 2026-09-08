@@ -104,6 +104,7 @@ describe('CLI parseSource', () => {
 		expect(option?.short).toBe('-u');
 		// commander camelCases --user-agent → options.userAgent, which parseSource reads.
 		expect(option?.attributeName()).toBe('userAgent');
+	});
 
 	test('reports parse failures without forcing the process to exit', async () => {
 		const tempDir = mkdtempSync(join(tmpdir(), 'defuddle-cli-error-'));
